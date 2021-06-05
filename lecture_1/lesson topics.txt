@@ -1,0 +1,321 @@
+*print("hello world") - why we used python
+*exit() - stop the command line
+*python identation(отступы) - operators(if, else, elif). Get example with wrong code with identation
+*comments(they can be anything, before, after code)
+*multiple comments("""anything write""")
+*python variables(int, string(the same that '', ""), type(s), a and A different variables)
+*x, y, z = "Orange", "Banana", "Apple", x = y = z = a = "apple"
+*fucntion
+*global variables
+-------------
+	x = "awesome"
+
+	def myfunc():
+  		print("Python is " + x)
+
+	myfunc()
+--------------
+x = "awesome"
+
+def myfunc():
+  x = "fantastic"
+  print("Python is " + x)
+
+myfunc()
+
+print("Python is " + x)
+-----------------------
+def myfunc():
+    global x
+    x = "fantastic"
+
+myfunc()
+
+print("Python is " + x)
+----------------
+x = "awesome"
+
+def myfunc():
+  global x
+  x = "fantastic"
+
+myfunc()
+
+print("Python is " + x)
+-------------
+*Data types
+Text Type:	str(reference to elements, check string)
+-------
+txt = "The best things in life are free!"
+print("free" in txt)
+--------
+b = "Hello, World!"
+print(b[2:5])
+--------
+b = "Hello, World!"
+print(b[:5])
+------
+b = "Hello, World!"
+print(b[-5:-2])
+-------
+a = "Hello, World!"
+print(a.upper())
+----------
+a = "Hello, World!"
+print(a.lower())
+------------
+a = " Hello, World! "
+print(a.strip())
+---------
+a = "Hello, World!"
+print(a.replace("H", "J"))
+----------
+a = "Hello, World!"
+print(a.split(","))
+---------
+age = 36
+txt = "My name is John, and I am {}"
+print(txt.format(age))
+-------------
+quantity = 3
+itemno = 567
+price = 49.95
+myorder = "I want {} pieces of item {} for {} dollars."
+print(myorder.format(quantity, itemno, price))
+-----------------
+quantity = 3
+itemno = 567
+price = 49.95
+myorder = "I want to pay {2} dollars for {0} pieces of item {1}."
+print(myorder.format(quantity, itemno, price))
+-------------
+txt = "We are the so-called \"Vikings\" from the north."
+------------
+
+Numeric Types:	int(+, -, *, **, //, /, %), float, complex
+Sequence Types:	list(changeable, len()), tuple, range
+-----------
+thislist = ["apple", "banana", "cherry"]
+print(thislist[-1])
+-----------
+thislist = ["apple", "banana", "cherry", "orange", "kiwi", "melon", "mango"]
+print(thislist[-4:-1])
+------------
+thislist = ["apple", "banana", "cherry"]
+if "apple" in thislist:
+  print("Yes, 'apple' is in the fruits list")
+------------
+thislist = ["apple", "banana", "cherry"]
+thislist.insert(2, "watermelon")
+print(thislist)
+-----------
+thislist = ["apple", "banana", "cherry"]
+thislist.append("orange")
+print(thislist)
+-----------
+thislist = ["apple", "banana", "cherry"]
+tropical = ["mango", "pineapple", "papaya", "apple"]
+thislist.extend(tropical)
+print(thislist)
+------------
+thislist = ["apple", "banana", "cherry"]
+thislist.remove("banana")
+print(thislist)
+------------
+thislist = ["apple", "banana", "cherry"]
+thislist.pop(1)
+print(thislist)
+------------
+thislist = ["apple", "banana", "cherry"]
+del thislist
+----------
+thislist = ["apple", "banana", "cherry"]
+thislist.clear()
+print(thislist)
+-----------
+thislist = ["apple", "banana", "cherry"]
+for i in range(len(thislist)):
+  print(thislist[i]) - even numbers output
+------------
+thislist = ["apple", "banana", "cherry"]
+i = 0
+while i < len(thislist):
+  print(thislist[i])
+  i = i + 1
+-----------
+thislist = ["apple", "banana", "cherry"]
+[print(x) for x in thislist]
+------------
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+newlist = []
+
+for x in fruits:
+  if "a" in x:
+    newlist.append(x)
+
+print(newlist)
+------------
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+
+newlist = [x for x in fruits if "a" in x]
+
+print(newlist)
+------------
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+
+newlist = [x if x != "banana" else "orange" for x in fruits]
+
+print(newlist)
+-----------
+thislist = ["orange", "mango", "kiwi", "pineapple", "banana"]
+thislist.sort()
+print(thislist)
+-----------
+thislist = ["orange", "mango", "kiwi", "pineapple", "banana"]
+thislist.sort(reverse = True)
+print(thislist)
+---------
+thislist = ["banana", "Orange", "Kiwi", "cherry"]
+thislist.reverse()
+print(thislist)
+---------
+TUPLE - the same command like a list
+-----------
+thistuple = ("apple", "banana", "cherry")
+y = list(thistuple)
+y.remove("apple")
+thistuple = tuple(y)
+--------------
+
+Set Types:	set
+-----
+thisset = {"apple", "banana", "cherry"}
+tropical = {"pineapple", "mango", "papaya"}
+
+thisset.update(tropical)
+
+print(thisset)
+--------
+thisset = {"apple", "banana", "cherry"}
+
+thisset.remove("banana")
+
+print(thisset)
+--------
+set1 = {"a", "b" , "c"}
+set2 = {1, 2, 3}
+
+set3 = set1.union(set2)
+print(set3)
+-------
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "apple"}
+
+x.intersection_update(y)
+
+print(x)
+---------
+#x - without apple will be
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "apple"}
+
+x.symmetric_difference_update(y)
+
+print(x)
+-----------
+Mapping Type:	dict:
+------
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+print(thisdict)
+print(thisdict["brand"])
+--------
+car = {
+"brand": "Ford",
+"model": "Mustang",
+"year": 1964
+}
+
+x = car.keys() || x = car.values()
+
+print(x) #before the change
+
+car["color"] = "white"
+
+print(x) #after the change
+------------
+The items() method will return each item in a dictionary, as tuples in a list
+car = {
+"brand": "Ford",
+"model": "Mustang",
+"year": 1964
+}
+
+x = car.items()
+
+print(x) #before the change
+
+car["year"] = 2020
+
+print(x) #after the change
+----------
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+thisdict.pop("model")
+print(thisdict)
+---------
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+thisdict.clear() ---- when del thisdict -> delete name thisdict also
+print(thisdict)
+---------
+for x in thisdict.keys():
+  print(x)
+-----------
+for x, y in thisdict.items():
+  print(x, y)
+--------
+child1 = {
+  "name" : "Emil",
+  "year" : 2004
+}
+child2 = {
+  "name" : "Tobias",
+  "year" : 2007
+}
+child3 = {
+  "name" : "Linus",
+  "year" : 2011
+}
+
+myfamily = {
+  "child1" : child1,
+  "child2" : child2,
+  "child3" : child3
+}
+------------
+problem how to element in list(solve with dictionary)
+--------
+l = [1, 1, 1, 2, 2, 3, 4 , 5]
+a = {}
+
+for i in l:
+    if i not in a.keys():
+        a[i] = 1
+    else:
+        a[i] += 1
+print(a)
+------------
+Boolean Type:	bool
+*random
+import random
+random.randrange(1, 10)
