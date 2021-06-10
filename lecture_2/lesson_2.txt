@@ -1,0 +1,155 @@
+*LOOPS - while, for
+-----------
+i = 0
+while i < 6:
+  i += 1
+  if i == 3:
+    continue
+  print(i)
+-----------
+for x in range(2, 6):
+  print(x)
+-----------
+for x in range(2, 30, 3):
+  print(x)
+------------
+for x in range(6):
+  if x == 3: break
+  print(x)
+----------
+*FUNCTIONS:
+---------
+def my_function(fname):
+  print(fname + " Refsnes")
+
+my_function("Emil")
+my_function("Tobias")
+my_function("Linus")
+-------------
+def my_function(child3, child2, child1):
+  print("The youngest child is " + child3)
+
+my_function(child1 = "Emil", child2 = "Tobias", child3 = "Linus")
+----------------
+def my_function(country = "Norway"):
+  print("I am from " + country)
+
+my_function("Sweden")
+my_function("India")
+my_function()
+my_function("Brazil")
+----------------
+Find max elem with functions(1, 7, 3)
+------
+def func(a, b):
+	resul1 = a + b
+	resul2 = a - b
+	return resul1, resul2
+
+c, d = func(3, 5) || c, _ = func(3, 5)
+*RECURSION
+----------
+def tri_recursion(k):
+    if(k > 0):
+        result = k + tri_recursion(k - 1)
+        print(result)
+    else:
+        result = 0
+    return result
+
+print("\n\nRecursion Example Results")
+tri_recursion(6)
+fib number
+-----
+def fib(n):
+    if(n == 0 or n == 1):
+        return n
+    return fib(n - 1) + fib(n - 2)
+x = int(input())
+print(fib(x))
+-------------
+*LAMBDA - anonim fucntion, which have input parameters(lambda a, b: a + b)
+------------
+x = lambda a : a + 10
+print(x(5))
+-----------
+x = lambda a, b, c : a + b + c
+print(x(5, 6, 2))
+----------
+def myfunc(n):
+    return lambda a : a * n
+
+mydoubler = myfunc(2)
+
+print(mydoubler(11))
+-------------
+*TRY, EXCEPT
+-------
+set1 = set()
+set1.add(1)
+set1.add(10)
+set1.add(15)
+try:
+    set1.remove(9)
+except Exception as e:
+    print("Error", str(e))
+    print("No element")
+# set1.discard(9)
+print(set1)
+*Filter
+filter - take 2 parameters(function, arguments)
+#even numbers in list
+----------------
+def f(x):
+    return x % 2 == 0
+
+list1 = [2, 1, 4, 3]
+list2 = list(filter(f, list1))
+print(list2)
+---------------
+def f(x):
+    return x % 2 == 0
+
+list1 = [2, 1, 4, 3]
+list2 = list(filter(lambda a: a % 2 == 0, list1))
+print(list2)
+--------------
+#prime numbers in list
+
+def func(x):
+    if x == 1:
+        return False
+    for i in range(2, x):
+        if x % i == 0:
+            return False
+    
+    return True
+
+list1 = [1, 2, 3, 12, 13, 20, 103, 257, 255]
+
+list2 = list(filter(func, list1))
+print(list2)
+----------
+#prime numbers in list
+
+def func(x):
+    if x == 1:
+        return False
+    for i in range(2, x):
+        if x % i == 0:
+            return False
+    
+    return True
+
+list1 = [1, 2, 3, 12, 13, 20, 103, 257, 255]
+
+list2 = list(filter(lambda a: func(a), list1))
+print(list2)
+------------
+#double all elements in list
+list1 = [1, 2, 3, 12, 13, 20, 103, 257, 255]
+
+list2 = list(map(lambda x: x * 2, list1))
+print(list2)
+------------
+difference map and filter -> filter compareand select by function, map change all elements
