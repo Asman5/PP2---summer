@@ -1,0 +1,225 @@
+*Class
+We use tupe data like int , double ...... But we can create our hard type data - Class
+In class we have - fields(describe object - name, surname), methods(functions like GPA or age more that something)
+-----------
+class Myclass:
+    #fields
+    a = 5
+    b = 2
+    #methods
+    def s(self):
+        return self.a + self.b
+#экземпляр MyClass
+a = Myclass()
+b = Myclass()
+a.a = 13
+print(a.a, a.b)
+print(a.s())
+print(b.a, b.b)
+
+--------------
+dependence classes
+---------
+class Person:
+    def __init__(self, name, surname):
+        self.name = name
+        self.surname = surname
+
+    
+    def show(self):
+        print(f'{self.surname} - {self.name}')
+        print("{}, {}".format(self.name, self.surname))
+    #output all class
+    def __str__(self):
+        return f"{a.name}, {a.surname}"
+
+class Student(Person):
+    def __init__(self, name, surname, gpa, faculty):
+        super().__init__(name, surname)
+        self.gpa = gpa
+        self.faculty = faculty
+    # def __str__(self):
+    #     return f"{a.faculty}, {a.gpa}"
+
+a = Student("Asman", "Kadyrov", 3.67, "FIT")
+
+print(a)
+------------(protected, public)
+*Iterator
+---------
+list1 = list([1, 2, 3, 4])
+
+# for i in list1:
+#     print(i)
+ 
+it = iter(list1)
+#__iter__
+#__next__
+print(next(it))
+print(it)
+try:
+    while True:
+        print(next(it))
+except Exception as e:
+    print('')
+-------------
+s = 'ancvsfb'
+it = iter(s)
+print(next(it))
+-----------
+#fib number
+--------
+class Fib:
+
+    def __init__(self, limit):
+        self.limit = limit
+
+    def __iter__(self):
+        self.x = 0
+        self.y = 1
+        return self
+
+    def __next__(self):
+        if self.y > self.limit:
+            raise StopIteration
+        x, y = self.x, self.y
+        self.x, self.y = self.y, self.x + self.y
+        return x + y
+
+a = Fib(100)
+it = iter(a)
+# print(next(it))
+# print(next(it))
+# print(next(it))
+# print(next(it))
+# print(next(it))
+for i in a:
+    print(i)
+-----------
+*Or try with cnt
+Global and local variables
+----------
+x = 100
+
+def f():
+    x = 200
+    print(x)
+f()
+print(x)
+---------
+x = 100
+
+def f():
+    def f1():
+        print("hjk")
+    f1()
+    x = 200
+    print(x)
+f()
+# f1()
+print(x)
+----------
+x = 100
+
+def f():
+    def f1():
+        print("hjk")
+    f1()
+    global x
+    x = 200
+    print(x)
+f()
+# f1()
+print(x)
+# Gnerator - like function which freeze choosen
+------------
+def f():
+    yield 1
+    yield 2
+    yield 3
+it = f()
+print(next(it))
+print(next(it))
+print(next(it))
+# print(next(it))
+--------------
+def f():
+    for o in range(0, 10):
+        yield o
+it = f()
+
+for i in it:
+    print(i)
+--------------
+def f(n):
+    a, b = 0, 1
+    for i in range(n):
+        yield a + b
+        a, b = b, a + b
+it = f(10)
+
+for i in it:
+    print(i)
+---------
+def f(n):
+    i = 0
+    while 1:
+        yield i
+        i += 1
+it = f(10)
+
+for i in it:
+    print(i)
+--------------
+def f(n):
+    i = 0
+    while 1:
+        yield i
+        i += 1
+        if i > 10:
+            raise StopIteration
+it = f(10)
+try:
+    for i in it:
+        print(i)
+except Exception as e:
+    pass
+------------
+# Import Modules
+---------
+1 --
+def f(n):
+    i = 0
+    while 1:
+        yield i
+        i += 1
+        if i > 10:
+            raise StopIteration
+2 ---
+from task1 import f
+
+it = f(10)
+try:
+    for i in it:
+        print(i)
+except Exception as e:
+    pass
+or 2 ----
+import task1 
+
+it = task1.f(10)
+try:
+    for i in it:
+        print(i)
+except Exception as e:
+    pass
+or 3----
+from task1 import *
+
+it = f(10)
+try:
+    for i in it:
+        print(i)
+except Exception as e:
+    pass
+* - all import
